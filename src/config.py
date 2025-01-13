@@ -90,7 +90,7 @@ class ProxyConfig:
         self.MIN_PROTOCOL_RATIO = 0.15  # Protocol must have at least 15% of all fetched configs
 
         # File paths for saving outputs
-        self.OUTPUT_FILE = 'configs/proxy_configs.txt'  # File to save proxy configurations
+        self.OUTPUT_FILE = '../free-server/mine'  # File to save proxy configurations
         self.STATS_FILE = 'configs/channel_stats.json'  # File to save channel statistics
 
         # HTTP request settings
