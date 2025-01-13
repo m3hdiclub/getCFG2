@@ -85,6 +85,6 @@ jobs:
     - name: Commit and push changes to free-server repo
       run: |
         cd free-server
-        git add mine
+        git add subscription_1
         git commit -m "Update proxy configurations" || echo "No changes to commit"
         git push
