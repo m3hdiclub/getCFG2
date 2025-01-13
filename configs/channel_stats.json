@@ -1,32 +1,32 @@
 {
-  "timestamp": "2025-01-13T11:47:24.554747",
+  "timestamp": "2025-01-13T11:50:22.629376",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/m3hdiclub/free-server/main/mine",
       "enabled": true,
       "metrics": {
-        "total_configs": 88,
-        "valid_configs": 29,
-        "unique_configs": 29,
-        "avg_response_time": 0.18,
+        "total_configs": 50,
+        "valid_configs": 50,
+        "unique_configs": 50,
+        "avg_response_time": 0.16,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 82.97,
-        "last_success": "2025-01-13T11:47:03.572335"
+        "overall_score": 99.76,
+        "last_success": "2025-01-13T11:49:41.985720"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/m3hdiclub/free-server/main/\u4e00\u5757.com",
-      "enabled": true,
+      "enabled": false,
       "metrics": {
-        "total_configs": 16,
-        "valid_configs": 13,
-        "unique_configs": 13,
-        "avg_response_time": 0.21,
-        "success_count": 1,
-        "fail_count": 0,
-        "overall_score": 95.0,
-        "last_success": "2025-01-13T11:47:03.779160"
+        "total_configs": 48,
+        "valid_configs": 0,
+        "unique_configs": 0,
+        "avg_response_time": 0,
+        "success_count": 0,
+        "fail_count": 1,
+        "overall_score": 15.0,
+        "last_success": null
       }
     },
     {
@@ -45,16 +45,16 @@
     },
     {
       "url": "https://raw.githubusercontent.com/tkamirparsa/V2rayy/refs/heads/main/Sub.text555",
-      "enabled": true,
+      "enabled": false,
       "metrics": {
-        "total_configs": 20,
-        "valid_configs": 8,
-        "unique_configs": 8,
-        "avg_response_time": 0.18,
-        "success_count": 1,
-        "fail_count": 0,
-        "overall_score": 84.73,
-        "last_success": "2025-01-13T11:47:14.284292"
+        "total_configs": 60,
+        "valid_configs": 24,
+        "unique_configs": 0,
+        "avg_response_time": 0,
+        "success_count": 0,
+        "fail_count": 1,
+        "overall_score": 25.0,
+        "last_success": null
       }
     },
     {
