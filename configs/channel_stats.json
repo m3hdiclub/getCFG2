@@ -1,73 +1,73 @@
 {
-  "timestamp": "2025-01-13T11:50:22.629376",
+  "timestamp": "2025-01-13T11:52:43.044465",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/m3hdiclub/free-server/main/mine",
       "enabled": true,
       "metrics": {
-        "total_configs": 50,
-        "valid_configs": 50,
-        "unique_configs": 50,
-        "avg_response_time": 0.16,
+        "total_configs": 14,
+        "valid_configs": 14,
+        "unique_configs": 14,
+        "avg_response_time": 0.22,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.76,
-        "last_success": "2025-01-13T11:49:41.985720"
+        "overall_score": 99.67,
+        "last_success": "2025-01-13T11:52:21.900314"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/m3hdiclub/free-server/main/\u4e00\u5757.com",
-      "enabled": false,
+      "enabled": true,
       "metrics": {
-        "total_configs": 48,
-        "valid_configs": 0,
-        "unique_configs": 0,
-        "avg_response_time": 0,
-        "success_count": 0,
-        "fail_count": 1,
-        "overall_score": 15.0,
-        "last_success": null
+        "total_configs": 16,
+        "valid_configs": 13,
+        "unique_configs": 13,
+        "avg_response_time": 0.19,
+        "success_count": 1,
+        "fail_count": 0,
+        "overall_score": 95.02,
+        "last_success": "2025-01-13T11:52:22.096369"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/m3hdiclub/free-server/main/wrkr",
-      "enabled": false,
+      "enabled": true,
       "metrics": {
         "total_configs": 18,
-        "valid_configs": 0,
-        "unique_configs": 0,
+        "valid_configs": 12,
+        "unique_configs": 4,
         "avg_response_time": 0,
         "success_count": 0,
-        "fail_count": 1,
-        "overall_score": 15.0,
+        "fail_count": 0,
+        "overall_score": 0.0,
         "last_success": null
       }
     },
     {
       "url": "https://raw.githubusercontent.com/tkamirparsa/V2rayy/refs/heads/main/Sub.text555",
-      "enabled": false,
+      "enabled": true,
       "metrics": {
-        "total_configs": 60,
-        "valid_configs": 24,
-        "unique_configs": 0,
-        "avg_response_time": 0,
-        "success_count": 0,
-        "fail_count": 1,
-        "overall_score": 25.0,
-        "last_success": null
+        "total_configs": 20,
+        "valid_configs": 15,
+        "unique_configs": 15,
+        "avg_response_time": 0.16,
+        "success_count": 1,
+        "fail_count": 0,
+        "overall_score": 93.5,
+        "last_success": "2025-01-13T11:52:32.625889"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/FRDYAK/teryak-configs/refs/heads/main/FRDYAK-pashmak",
-      "enabled": false,
+      "enabled": true,
       "metrics": {
         "total_configs": 99,
-        "valid_configs": 0,
-        "unique_configs": 0,
+        "valid_configs": 6,
+        "unique_configs": 2,
         "avg_response_time": 0,
         "success_count": 0,
-        "fail_count": 1,
-        "overall_score": 15.0,
+        "fail_count": 0,
+        "overall_score": 0.0,
         "last_success": null
       }
     }
