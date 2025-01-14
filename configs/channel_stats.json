@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-14T19:20:14.382851",
+  "timestamp": "2025-01-14T20:26:15.566483",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.04,
+        "avg_response_time": 0.05,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.94,
-        "last_success": "2025-01-14T19:15:46.613970"
+        "overall_score": 99.92,
+        "last_success": "2025-01-14T20:21:48.273628"
       }
     },
     {
@@ -36,25 +36,25 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.1,
+        "avg_response_time": 0.07,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.86,
-        "last_success": "2025-01-14T19:15:56.818564"
+        "overall_score": 72.9,
+        "last_success": "2025-01-14T20:21:58.469238"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 1553,
+        "total_configs": 1552,
         "valid_configs": 60,
         "unique_configs": 52,
-        "avg_response_time": 0.12,
+        "avg_response_time": 0.07,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.45,
-        "last_success": "2025-01-14T19:15:57.800567"
+        "overall_score": 72.52,
+        "last_success": "2025-01-14T20:21:59.405404"
       }
     },
     {
@@ -187,7 +187,7 @@
       "url": "https://t.me/s/prrofile_purple",
       "enabled": false,
       "metrics": {
-        "total_configs": 480,
+        "total_configs": 504,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -215,7 +215,7 @@
       "url": "https://t.me/s/meli_proxyy",
       "enabled": true,
       "metrics": {
-        "total_configs": 273,
+        "total_configs": 285,
         "valid_configs": 6,
         "unique_configs": 2,
         "avg_response_time": 0,
@@ -229,7 +229,7 @@
       "url": "https://t.me/s/DirectVPN",
       "enabled": false,
       "metrics": {
-        "total_configs": 54,
+        "total_configs": 51,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
