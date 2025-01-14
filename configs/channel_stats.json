@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-14T05:23:27.963947",
+  "timestamp": "2025-01-14T06:32:50.130807",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.11,
+        "avg_response_time": 0.14,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.84,
-        "last_success": "2025-01-14T05:19:09.673578"
+        "overall_score": 99.79,
+        "last_success": "2025-01-14T06:28:30.856672"
       }
     },
     {
@@ -36,11 +36,11 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.1,
+        "avg_response_time": 0.09,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.86,
-        "last_success": "2025-01-14T05:19:19.950805"
+        "overall_score": 72.88,
+        "last_success": "2025-01-14T06:28:41.114437"
       }
     },
     {
@@ -50,11 +50,11 @@
         "total_configs": 1614,
         "valid_configs": 60,
         "unique_configs": 52,
-        "avg_response_time": 0.19,
+        "avg_response_time": 0.09,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.31,
-        "last_success": "2025-01-14T05:19:21.074918"
+        "overall_score": 72.47,
+        "last_success": "2025-01-14T06:28:42.148392"
       }
     },
     {
@@ -288,11 +288,11 @@
         "total_configs": 107,
         "valid_configs": 5,
         "unique_configs": 5,
-        "avg_response_time": 0.89,
+        "avg_response_time": 0.48,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 74.83,
-        "last_success": "2025-01-14T05:23:27.961950"
+        "overall_score": 75.45,
+        "last_success": "2025-01-14T06:32:50.128232"
       }
     }
   ]
