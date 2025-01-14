@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-14T13:28:22.325881",
+  "timestamp": "2025-01-14T14:23:48.845272",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.2,
+        "avg_response_time": 0.1,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.7,
-        "last_success": "2025-01-14T13:23:58.329417"
+        "overall_score": 99.85,
+        "last_success": "2025-01-14T14:19:19.847373"
       }
     },
     {
@@ -36,11 +36,11 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.32,
+        "avg_response_time": 0.12,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.52,
-        "last_success": "2025-01-14T13:24:08.946896"
+        "overall_score": 72.83,
+        "last_success": "2025-01-14T14:19:30.139366"
       }
     },
     {
@@ -50,18 +50,18 @@
         "total_configs": 1619,
         "valid_configs": 60,
         "unique_configs": 52,
-        "avg_response_time": 0.39,
+        "avg_response_time": 0.15,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.01,
-        "last_success": "2025-01-14T13:24:10.277575"
+        "overall_score": 72.37,
+        "last_success": "2025-01-14T14:19:31.231272"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt",
       "enabled": false,
       "metrics": {
-        "total_configs": 17163,
+        "total_configs": 17229,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -75,7 +75,7 @@
       "url": "https://t.me/s/v2ray_free_conf",
       "enabled": false,
       "metrics": {
-        "total_configs": 87,
+        "total_configs": 90,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -143,15 +143,15 @@
     },
     {
       "url": "https://t.me/s/ShadowProxy66",
-      "enabled": true,
+      "enabled": false,
       "metrics": {
-        "total_configs": 132,
-        "valid_configs": 2,
-        "unique_configs": 2,
+        "total_configs": 177,
+        "valid_configs": 0,
+        "unique_configs": 0,
         "avg_response_time": 0,
         "success_count": 0,
-        "fail_count": 0,
-        "overall_score": 0.0,
+        "fail_count": 1,
+        "overall_score": 15.0,
         "last_success": null
       }
     },
@@ -187,7 +187,7 @@
       "url": "https://t.me/s/prrofile_purple",
       "enabled": false,
       "metrics": {
-        "total_configs": 480,
+        "total_configs": 507,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -199,29 +199,29 @@
     },
     {
       "url": "https://t.me/s/proxy_shadosocks",
-      "enabled": false,
+      "enabled": true,
       "metrics": {
         "total_configs": 39,
+        "valid_configs": 3,
+        "unique_configs": 1,
+        "avg_response_time": 0,
+        "success_count": 0,
+        "fail_count": 0,
+        "overall_score": 0.0,
+        "last_success": null
+      }
+    },
+    {
+      "url": "https://t.me/s/meli_proxyy",
+      "enabled": false,
+      "metrics": {
+        "total_configs": 156,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 1,
         "overall_score": 15.0,
-        "last_success": null
-      }
-    },
-    {
-      "url": "https://t.me/s/meli_proxyy",
-      "enabled": true,
-      "metrics": {
-        "total_configs": 258,
-        "valid_configs": 6,
-        "unique_configs": 2,
-        "avg_response_time": 0,
-        "success_count": 0,
-        "fail_count": 0,
-        "overall_score": 0.0,
         "last_success": null
       }
     },
@@ -286,13 +286,13 @@
       "enabled": true,
       "metrics": {
         "total_configs": 107,
-        "valid_configs": 5,
-        "unique_configs": 5,
-        "avg_response_time": 0.78,
+        "valid_configs": 6,
+        "unique_configs": 6,
+        "avg_response_time": 0.5,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 75.0,
-        "last_success": "2025-01-14T13:28:22.323800"
+        "overall_score": 75.65,
+        "last_success": "2025-01-14T14:23:48.843397"
       }
     }
   ]
