@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-14T20:26:15.566483",
+  "timestamp": "2025-01-14T21:23:56.241737",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.05,
+        "avg_response_time": 0.04,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.92,
-        "last_success": "2025-01-14T20:21:48.273628"
+        "overall_score": 99.94,
+        "last_success": "2025-01-14T21:19:23.898331"
       }
     },
     {
@@ -36,25 +36,25 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.07,
+        "avg_response_time": 0.17,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.9,
-        "last_success": "2025-01-14T20:21:58.469238"
+        "overall_score": 72.75,
+        "last_success": "2025-01-14T21:19:34.336821"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 1552,
+        "total_configs": 1542,
         "valid_configs": 60,
         "unique_configs": 52,
-        "avg_response_time": 0.07,
+        "avg_response_time": 0.18,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.52,
-        "last_success": "2025-01-14T20:21:59.405404"
+        "overall_score": 72.37,
+        "last_success": "2025-01-14T21:19:35.367214"
       }
     },
     {
@@ -145,7 +145,7 @@
       "url": "https://t.me/s/ShadowProxy66",
       "enabled": false,
       "metrics": {
-        "total_configs": 177,
+        "total_configs": 207,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -215,7 +215,7 @@
       "url": "https://t.me/s/meli_proxyy",
       "enabled": true,
       "metrics": {
-        "total_configs": 285,
+        "total_configs": 243,
         "valid_configs": 6,
         "unique_configs": 2,
         "avg_response_time": 0,
@@ -285,9 +285,9 @@
       "url": "https://t.me/s/V2ray_Alpha",
       "enabled": true,
       "metrics": {
-        "total_configs": 180,
-        "valid_configs": 4,
-        "unique_configs": 2,
+        "total_configs": 141,
+        "valid_configs": 1,
+        "unique_configs": 1,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
