@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-14T12:44:35.093578",
+  "timestamp": "2025-01-14T13:28:22.325881",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -12,7 +12,7 @@
         "success_count": 1,
         "fail_count": 0,
         "overall_score": 99.7,
-        "last_success": "2025-01-14T12:39:59.095961"
+        "last_success": "2025-01-14T13:23:58.329417"
       }
     },
     {
@@ -36,11 +36,11 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.17,
+        "avg_response_time": 0.32,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.75,
-        "last_success": "2025-01-14T12:40:09.703165"
+        "overall_score": 72.52,
+        "last_success": "2025-01-14T13:24:08.946896"
       }
     },
     {
@@ -50,11 +50,11 @@
         "total_configs": 1619,
         "valid_configs": 60,
         "unique_configs": 52,
-        "avg_response_time": 0.25,
+        "avg_response_time": 0.39,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.22,
-        "last_success": "2025-01-14T12:40:10.898369"
+        "overall_score": 72.01,
+        "last_success": "2025-01-14T13:24:10.277575"
       }
     },
     {
@@ -119,7 +119,7 @@
       "metrics": {
         "total_configs": 60,
         "valid_configs": 9,
-        "unique_configs": 1,
+        "unique_configs": 2,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -146,8 +146,8 @@
       "enabled": true,
       "metrics": {
         "total_configs": 132,
-        "valid_configs": 3,
-        "unique_configs": 3,
+        "valid_configs": 2,
+        "unique_configs": 2,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -215,7 +215,7 @@
       "url": "https://t.me/s/meli_proxyy",
       "enabled": true,
       "metrics": {
-        "total_configs": 264,
+        "total_configs": 258,
         "valid_configs": 6,
         "unique_configs": 2,
         "avg_response_time": 0,
@@ -269,15 +269,15 @@
     },
     {
       "url": "https://t.me/s/VmessProtocol",
-      "enabled": true,
+      "enabled": false,
       "metrics": {
         "total_configs": 84,
-        "valid_configs": 6,
-        "unique_configs": 2,
+        "valid_configs": 0,
+        "unique_configs": 0,
         "avg_response_time": 0,
         "success_count": 0,
-        "fail_count": 0,
-        "overall_score": 0.0,
+        "fail_count": 1,
+        "overall_score": 15.0,
         "last_success": null
       }
     },
@@ -288,11 +288,11 @@
         "total_configs": 107,
         "valid_configs": 5,
         "unique_configs": 5,
-        "avg_response_time": 0.86,
+        "avg_response_time": 0.78,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 74.87,
-        "last_success": "2025-01-14T12:44:35.091658"
+        "overall_score": 75.0,
+        "last_success": "2025-01-14T13:28:22.323800"
       }
     }
   ]
