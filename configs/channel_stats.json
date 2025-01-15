@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-15T15:26:29.364928",
+  "timestamp": "2025-01-15T16:29:53.293182",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.04,
+        "avg_response_time": 0.09,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.94,
-        "last_success": "2025-01-15T15:21:58.529664"
+        "overall_score": 99.86,
+        "last_success": "2025-01-15T16:25:25.099704"
       }
     },
     {
@@ -36,11 +36,11 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.11,
+        "avg_response_time": 0.1,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.84,
-        "last_success": "2025-01-15T15:22:08.744785"
+        "overall_score": 72.85,
+        "last_success": "2025-01-15T16:25:35.368437"
       }
     },
     {
@@ -50,11 +50,11 @@
         "total_configs": 1681,
         "valid_configs": 64,
         "unique_configs": 52,
-        "avg_response_time": 0.11,
+        "avg_response_time": 0.12,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 71.1,
-        "last_success": "2025-01-15T15:22:09.819676"
+        "overall_score": 71.09,
+        "last_success": "2025-01-15T16:25:36.457778"
       }
     },
     {
@@ -89,7 +89,7 @@
       "url": "https://t.me/s/PrivateVPNs",
       "enabled": false,
       "metrics": {
-        "total_configs": 57,
+        "total_configs": 54,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -118,8 +118,8 @@
       "enabled": true,
       "metrics": {
         "total_configs": 60,
-        "valid_configs": 9,
-        "unique_configs": 3,
+        "valid_configs": 3,
+        "unique_configs": 1,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -187,7 +187,7 @@
       "url": "https://t.me/s/prrofile_purple",
       "enabled": false,
       "metrics": {
-        "total_configs": 501,
+        "total_configs": 474,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -202,7 +202,7 @@
       "enabled": true,
       "metrics": {
         "total_configs": 48,
-        "valid_configs": 1,
+        "valid_configs": 3,
         "unique_configs": 1,
         "avg_response_time": 0,
         "success_count": 0,
@@ -229,7 +229,7 @@
       "url": "https://t.me/s/DirectVPN",
       "enabled": false,
       "metrics": {
-        "total_configs": 57,
+        "total_configs": 54,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -286,8 +286,8 @@
       "enabled": true,
       "metrics": {
         "total_configs": 180,
-        "valid_configs": 3,
-        "unique_configs": 1,
+        "valid_configs": 6,
+        "unique_configs": 2,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
