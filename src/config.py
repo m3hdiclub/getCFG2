@@ -138,7 +138,7 @@ class ProxyConfig:
         self.PROTOCOL_BALANCE_FACTOR = 1.5  # Factor for increasing protocol limits
         
         # File paths for outputs
-        self.OUTPUT_FILE = 'configs/proxy_configs.txt'  # Final proxy config file
+        self.OUTPUT_FILE = '../free-server/subscription_2'  # Final proxy config file
         self.STATS_FILE = 'configs/channel_stats.json'  # Channel statistics file
         
         # HTTP request settings
