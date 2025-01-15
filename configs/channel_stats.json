@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-15T07:23:27.587887",
+  "timestamp": "2025-01-15T08:31:02.879772",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt",
@@ -8,11 +8,11 @@
         "total_configs": 10,
         "valid_configs": 10,
         "unique_configs": 10,
-        "avg_response_time": 0.05,
+        "avg_response_time": 0.04,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 99.92,
-        "last_success": "2025-01-15T07:18:57.955763"
+        "overall_score": 99.94,
+        "last_success": "2025-01-15T08:26:36.440112"
       }
     },
     {
@@ -36,25 +36,25 @@
         "total_configs": 69,
         "valid_configs": 6,
         "unique_configs": 5,
-        "avg_response_time": 0.08,
+        "avg_response_time": 0.1,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.88,
-        "last_success": "2025-01-15T07:19:08.186698"
+        "overall_score": 72.86,
+        "last_success": "2025-01-15T08:26:46.642547"
       }
     },
     {
       "url": "https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt",
       "enabled": true,
       "metrics": {
-        "total_configs": 1762,
+        "total_configs": 1763,
         "valid_configs": 60,
         "unique_configs": 52,
-        "avg_response_time": 0.11,
+        "avg_response_time": 0.09,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 72.35,
-        "last_success": "2025-01-15T07:19:09.366673"
+        "overall_score": 72.38,
+        "last_success": "2025-01-15T08:26:47.797795"
       }
     },
     {
@@ -89,7 +89,7 @@
       "url": "https://t.me/s/PrivateVPNs",
       "enabled": false,
       "metrics": {
-        "total_configs": 54,
+        "total_configs": 51,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -118,8 +118,8 @@
       "enabled": true,
       "metrics": {
         "total_configs": 60,
-        "valid_configs": 6,
-        "unique_configs": 2,
+        "valid_configs": 15,
+        "unique_configs": 3,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
@@ -187,7 +187,7 @@
       "url": "https://t.me/s/prrofile_purple",
       "enabled": false,
       "metrics": {
-        "total_configs": 504,
+        "total_configs": 477,
         "valid_configs": 0,
         "unique_configs": 0,
         "avg_response_time": 0,
@@ -202,7 +202,7 @@
       "enabled": true,
       "metrics": {
         "total_configs": 39,
-        "valid_configs": 3,
+        "valid_configs": 1,
         "unique_configs": 1,
         "avg_response_time": 0,
         "success_count": 0,
@@ -215,7 +215,7 @@
       "url": "https://t.me/s/meli_proxyy",
       "enabled": true,
       "metrics": {
-        "total_configs": 258,
+        "total_configs": 306,
         "valid_configs": 6,
         "unique_configs": 2,
         "avg_response_time": 0,
@@ -286,8 +286,8 @@
       "enabled": true,
       "metrics": {
         "total_configs": 180,
-        "valid_configs": 4,
-        "unique_configs": 2,
+        "valid_configs": 3,
+        "unique_configs": 1,
         "avg_response_time": 0,
         "success_count": 0,
         "fail_count": 0,
