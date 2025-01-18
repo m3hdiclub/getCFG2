@@ -4,24 +4,24 @@ import re
 
 class ChannelMetrics:
     """
-    A class to track and store metrics for each proxy config channel.
-    Handles statistics like success rates, response times, and scoring.
+    Class to store and track metrics for each proxy config channel.
+    All metrics start with default values of 0 or None.
     """
     def __init__(self):
-        self.total_configs = 0  # Total number of configs found in channel
-        self.valid_configs = 0  # Number of configs that passed validation
-        self.unique_configs = 0  # Number of configs not seen in other channels
-        self.avg_response_time = 0  # Average time to fetch configs from channel
-        self.last_success_time = None  # Last time configs were successfully fetched
-        self.fail_count = 0  # Number of failed fetch attempts
-        self.success_count = 0  # Number of successful fetch attempts
-        self.overall_score = 0.0  # Channel performance score (0-100)
-        self.protocol_counts = {}  # Count of configs per protocol type
+        self.total_configs = 0          # Total number of configs found in channel (default: 0)
+        self.valid_configs = 0          # Number of valid configs after validation (default: 0)
+        self.unique_configs = 0         # Number of unique configs (not duplicates) (default: 0)
+        self.avg_response_time = 0      # Average response time in seconds (default: 0)
+        self.last_success_time = None   # Timestamp of last successful fetch (default: None)
+        self.fail_count = 0             # Number of failed fetch attempts (default: 0)
+        self.success_count = 0          # Number of successful fetch attempts (default: 0)
+        self.overall_score = 0.0        # Overall channel performance score 0-100 (default: 0.0)
+        self.protocol_counts = {}       # Count of configs per protocol (default: empty dict)
 
 class ChannelConfig:
     """
-    Represents a source channel for proxy configurations.
-    Handles channel-specific settings and metrics tracking.
+    Class to store channel configuration and associated metrics.
+    Default state for each channel is enabled (True).
     """
     def __init__(self, url: str, enabled: bool = True):
         self.url = url
@@ -32,11 +32,13 @@ class ChannelConfig:
         
     def calculate_overall_score(self):
         """
-        Calculates channel performance score based on multiple factors:
+        Calculate overall channel score based on multiple factors:
         - Reliability (35%): Success rate of fetch attempts
         - Quality (25%): Ratio of valid configs to total configs
         - Uniqueness (25%): Ratio of unique configs to valid configs
-        - Response Time (15%): Speed of config fetching
+        - Response Time (15%): Score based on average response time
+        
+        Total score ranges from 0 to 100. Channel is disabled if score falls below 25.
         """
         reliability_score = (self.metrics.success_count / (self.metrics.success_count + self.metrics.fail_count)) * 35 if (self.metrics.success_count + self.metrics.fail_count) > 0 else 0
         quality_score = (self.metrics.valid_configs / self.metrics.total_configs) * 25 if self.metrics.total_configs > 0 else 0
@@ -46,57 +48,65 @@ class ChannelConfig:
         self.metrics.overall_score = reliability_score + quality_score + uniqueness_score + response_score
 
 class ProxyConfig:
-    """
-    Main configuration class for the proxy config fetcher.
-    Contains all settings, limits, and source management.
-    """
     def __init__(self):
-        # Complete list of all source URLs and Telegram channels to fetch proxy configs from
+        # List of source URLs to fetch proxy configs from
+        # Add or remove channels here. Each ChannelConfig takes a URL and enabled status (default: True)
         self.SOURCE_URLS = [
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
             ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
-            # ChannelConfig("https://raw.githubusercontent.com/Kwinshadow/TelegramV2rayCollector/main/sublinks/mix.txt"),
-            # ChannelConfig("https://raw.githubusercontent.com/MhdiTaheri/V2rayCollector_Py/refs/heads/main/sub/Mix/mix.txt"),
-            # ChannelConfig("https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt"),
+            ChannelConfig("https://t.me/s/FreeV2rays"),
             ChannelConfig("https://t.me/s/v2ray_free_conf"),
             ChannelConfig("https://t.me/s/PrivateVPNs"),
             ChannelConfig("https://t.me/s/IP_CF_Config"),
-            ChannelConfig("https://t.me/s/ShadowProxy66"),
+            ChannelConfig("https://t.me/s/shadowproxy66"),
             ChannelConfig("https://t.me/s/OutlineReleasedKey"),
             ChannelConfig("https://t.me/s/prrofile_purple"),
             ChannelConfig("https://t.me/s/proxy_shadosocks"),
             ChannelConfig("https://t.me/s/meli_proxyy"),
             ChannelConfig("https://t.me/s/DirectVPN"),
             ChannelConfig("https://t.me/s/VmessProtocol"),
-            ChannelConfig("https://t.me/s/V2ray_Alpha")
+            ChannelConfig("https://t.me/s/V2ray_Alpha"),
+            # ChannelConfig("https://t.me/s/VlessConfig"),
+            ChannelConfig("https://t.me/s/DailyV2RY"),
+            ChannelConfig("https://t.me/s/ShadowsocksM"),
+            # ChannelConfig("https://t.me/s/v2rayngvpn")
+            # ChannelConfig("https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/hysteria")
         ]
 
-        # Global limits for all protocols
+        # Global limits for number of configs per protocol
+        # Default values: min=3, max=25
+        # Adjust these values to control how many configs of each type are collected
         self.PROTOCOL_CONFIG_LIMITS = {
-            "min": 3,  # Minimum configs required per protocol
-            "max": 25  # Maximum configs allowed per protocol
+            "min": 9,    # Minimum configs required per protocol (default: 3)
+            "max": 25    # Maximum configs allowed per protocol (default: 25)
         }
 
-        # Detailed configuration for each supported protocol
-        # Defines limits, priorities, and flexibility settings
+        # Supported proxy protocols configuration
+        # For each protocol:
+        # - min_configs: Minimum number of configs required (default: 3)
+        # - max_configs: Maximum number of configs allowed (default: 25)
+        # - priority: Higher priority means more configs kept during balancing (default: 1, high priority: 2)
+        # - flexible_max: If True, max_configs can be dynamically adjusted (default: True)
+        # - aliases: Alternative protocol prefixes to recognize (optional)
         self.SUPPORTED_PROTOCOLS: Dict[str, Dict] = {
             "wireguard://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 2,  # Higher priority protocols are preferred
-                "flexible_max": True  # Allow exceeding max limit if needed
+                "priority": 2,
+                "flexible_max": True
             },
             "hysteria2://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
                 "priority": 1,
-                "flexible_max": True
+                "flexible_max": True,
+                "aliases": ["hy2://"]
             },
             "vless://": {
                 "min_configs": self.PROTOCOL_CONFIG_LIMITS["min"],
                 "max_configs": self.PROTOCOL_CONFIG_LIMITS["max"],
-                "priority": 1,
+                "priority": 2,
                 "flexible_max": True
             },
             "vmess://": {
@@ -125,28 +135,28 @@ class ProxyConfig:
             }
         }
 
-        # Channel configuration limits
-        self.MIN_CONFIGS_PER_CHANNEL = 3  # Minimum configs needed from each channel
-        self.MAX_CONFIGS_PER_CHANNEL = 50  # Maximum configs to take from each channel
-        self.MAX_CONFIG_AGE_DAYS = 90  # Maximum age of configs in days
-        self.CHANNEL_RETRY_LIMIT = 10  # Maximum retry attempts per channel
-        self.CHANNEL_ERROR_THRESHOLD = 0.7  # Error rate threshold for disabling channels
-        self.MIN_PROTOCOL_RATIO = 0.1  # Minimum ratio of configs per protocol
+        # Channel-specific configuration limits
+        self.MIN_CONFIGS_PER_CHANNEL = 1     # Minimum configs required from each channel (default: 3)
+        self.MAX_CONFIGS_PER_CHANNEL = 50    # Maximum configs allowed from each channel (default: 50)
+        self.MAX_CONFIG_AGE_DAYS = 90        # Maximum age of configs in days (default: 90)
+        self.CHANNEL_RETRY_LIMIT = 10        # Maximum retry attempts per channel (default: 10)
+        self.CHANNEL_ERROR_THRESHOLD = 0.7   # Error rate threshold to disable channel (default: 0.7 or 70%)
+        self.MIN_PROTOCOL_RATIO = 0.1        # Minimum ratio of configs per protocol (default: 0.1 or 10%)
 
         # Dynamic protocol adjustment settings
-        self.DYNAMIC_PROTOCOL_ADJUSTMENT = True  # Enable automatic limit adjustments
-        self.PROTOCOL_BALANCE_FACTOR = 1.5  # Factor for increasing protocol limits
-        
-        # File paths for outputs
-        self.OUTPUT_FILE = '../free-server/subscription_2'  # Final proxy config file
-        self.STATS_FILE = 'configs/channel_stats.json'  # Channel statistics file
+        self.DYNAMIC_PROTOCOL_ADJUSTMENT = True   # Enable/disable dynamic adjustment (default: True)
+        self.PROTOCOL_BALANCE_FACTOR = 1.5        # Factor for adjusting protocol limits (default: 1.5)
+
+        # Output file paths (default paths shown)
+        self.OUTPUT_FILE = 'configs/proxy_configs.txt'    # Path to save final configs
+        self.STATS_FILE = 'configs/channel_stats.json'    # Path to save channel stats
         
         # HTTP request settings
-        self.MAX_RETRIES = 10  # Maximum retry attempts for HTTP requests
-        self.RETRY_DELAY = 15  # Delay between retries in seconds
-        self.REQUEST_TIMEOUT = 60  # Request timeout in seconds
+        self.MAX_RETRIES = 10            # Maximum number of retry attempts (default: 10)
+        self.RETRY_DELAY = 15            # Delay between retries in seconds (default: 15)
+        self.REQUEST_TIMEOUT = 60        # Request timeout in seconds (default: 60)
         
-        # HTTP request headers to mimic browser behavior
+        # HTTP request headers (default User-Agent and other headers)
         self.HEADERS = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -156,18 +166,32 @@ class ProxyConfig:
         }
 
     def is_protocol_enabled(self, protocol: str) -> bool:
-        """Check if a protocol is supported and enabled"""
-        return protocol in self.SUPPORTED_PROTOCOLS
+        """
+        Check if a protocol is enabled in SUPPORTED_PROTOCOLS.
+        Also checks protocol aliases.
+        """
+        if protocol in self.SUPPORTED_PROTOCOLS:
+            return True
+        for main_protocol, info in self.SUPPORTED_PROTOCOLS.items():
+            if 'aliases' in info and protocol in info['aliases']:
+                return True
+        return False
 
     def get_enabled_channels(self) -> List[ChannelConfig]:
-        """Return list of currently enabled channel sources"""
+        """
+        Return list of enabled channels only.
+        Channels are enabled by default unless their score drops below 25.
+        """
         return [channel for channel in self.SOURCE_URLS if channel.enabled]
 
     def update_channel_stats(self, channel: ChannelConfig, success: bool, response_time: float = 0):
         """
-        Update channel statistics and metrics after fetch attempt.
-        Handles success/failure counting and score calculation.
-        Disables channels that perform poorly.
+        Update channel statistics after fetch attempt.
+        Disables channel if overall score drops below 25.
+        
+        Parameters:
+        - success: True if fetch was successful (default metrics: success_count=0, fail_count=0)
+        - response_time: Response time in seconds (default avg_response_time: 0)
         """
         if success:
             channel.metrics.success_count += 1
@@ -183,14 +207,14 @@ class ProxyConfig:
         
         channel.calculate_overall_score()
         
-        # Disable channels with consistently poor performance
         if channel.metrics.overall_score < 25:
             channel.enabled = False
             
     def adjust_protocol_limits(self, channel: ChannelConfig):
         """
         Dynamically adjust protocol limits based on channel performance.
-        Increases max limits for protocols that consistently provide good configs.
+        Only adjusts if DYNAMIC_PROTOCOL_ADJUSTMENT is enabled (default: True).
+        Uses PROTOCOL_BALANCE_FACTOR (default: 1.5) to calculate new limits.
         """
         if not self.DYNAMIC_PROTOCOL_ADJUSTMENT:
             return
