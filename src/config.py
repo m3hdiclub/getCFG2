@@ -53,7 +53,6 @@ class ProxyConfig:
         # Add or remove channels here. Each ChannelConfig takes a URL and enabled status (default: True)
         self.SOURCE_URLS = [
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/mine"),
-            ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/一块.com"),
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/wrkr"),
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/bpb"),
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/@horizonbehind2 [X]")
