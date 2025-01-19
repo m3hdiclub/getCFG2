@@ -54,7 +54,6 @@ class ProxyConfig:
         self.SOURCE_URLS = [
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/mine"),
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/wrkr"),
-            ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/bpb"),
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/@horizonbehind2 [X]")
         ]
 
