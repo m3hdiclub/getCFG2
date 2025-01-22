@@ -54,7 +54,9 @@ class ProxyConfig:
         self.SOURCE_URLS = [
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/mine"),
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/wrkr"),
-            ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/@horizonbehind2 [X]")
+            ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/@horizonbehind2 [X]"),
+			ChannelConfig("https://t.me/s/fnet00"),
+			ChannelConfig("https://t.me/mobilesignal")
         ]
 
         # Global limits for number of configs per protocol
