@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-22T00:52:05.995234",
+  "timestamp": "2025-01-22T10:07:03.101226+00:00",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/m3hdiclub/free-server/main/mine",
@@ -8,11 +8,11 @@
         "total_configs": 224,
         "valid_configs": 14,
         "unique_configs": 14,
-        "avg_response_time": 0.25,
+        "avg_response_time": 0.21,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 76.19,
-        "last_success": "2025-01-22T00:52:01.560830",
+        "overall_score": 76.25,
+        "last_success": "2025-01-22T10:06:47.525974+00:00",
         "protocol_counts": {
           "wireguard://": 0,
           "hysteria2://": 2,
@@ -31,11 +31,11 @@
         "total_configs": 36,
         "valid_configs": 4,
         "unique_configs": 4,
-        "avg_response_time": 0.24,
+        "avg_response_time": 0.22,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 77.41,
-        "last_success": "2025-01-22T00:52:03.805574",
+        "overall_score": 77.45,
+        "last_success": "2025-01-22T10:06:49.748049+00:00",
         "protocol_counts": {
           "wireguard://": 0,
           "hysteria2://": 0,
@@ -54,11 +54,11 @@
         "total_configs": 81,
         "valid_configs": 9,
         "unique_configs": 9,
-        "avg_response_time": 0.19,
+        "avg_response_time": 0.16,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 77.5,
-        "last_success": "2025-01-22T00:52:05.994386",
+        "overall_score": 77.54,
+        "last_success": "2025-01-22T10:06:51.909930+00:00",
         "protocol_counts": {
           "wireguard://": 0,
           "hysteria2://": 0,
@@ -66,6 +66,52 @@
           "vmess://": 0,
           "ss://": 0,
           "trojan://": 9,
+          "tuic://": 0
+        }
+      }
+    },
+    {
+      "url": "https://t.me/s/fnet00",
+      "enabled": true,
+      "metrics": {
+        "total_configs": 18,
+        "valid_configs": 15,
+        "unique_configs": 15,
+        "avg_response_time": 4.26,
+        "success_count": 1,
+        "fail_count": 0,
+        "overall_score": 89.44,
+        "last_success": "2025-01-22T10:06:58.272603+00:00",
+        "protocol_counts": {
+          "wireguard://": 0,
+          "hysteria2://": 4,
+          "vless://": 5,
+          "vmess://": 1,
+          "ss://": 5,
+          "trojan://": 0,
+          "tuic://": 0
+        }
+      }
+    },
+    {
+      "url": "https://t.me/mobilesignal",
+      "enabled": false,
+      "metrics": {
+        "total_configs": 0,
+        "valid_configs": 0,
+        "unique_configs": 0,
+        "avg_response_time": 0,
+        "success_count": 0,
+        "fail_count": 1,
+        "overall_score": 15.0,
+        "last_success": null,
+        "protocol_counts": {
+          "wireguard://": 0,
+          "hysteria2://": 0,
+          "vless://": 0,
+          "vmess://": 0,
+          "ss://": 0,
+          "trojan://": 0,
           "tuic://": 0
         }
       }
