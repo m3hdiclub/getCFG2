@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-21T00:50:28.019645",
+  "timestamp": "2025-01-22T00:52:05.995234",
   "channels": [
     {
       "url": "https://raw.githubusercontent.com/m3hdiclub/free-server/main/mine",
@@ -8,11 +8,11 @@
         "total_configs": 224,
         "valid_configs": 14,
         "unique_configs": 14,
-        "avg_response_time": 0.13,
+        "avg_response_time": 0.25,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 76.37,
-        "last_success": "2025-01-21T00:50:23.785924",
+        "overall_score": 76.19,
+        "last_success": "2025-01-22T00:52:01.560830",
         "protocol_counts": {
           "wireguard://": 0,
           "hysteria2://": 2,
@@ -31,11 +31,11 @@
         "total_configs": 36,
         "valid_configs": 4,
         "unique_configs": 4,
-        "avg_response_time": 0.1,
+        "avg_response_time": 0.24,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 77.63,
-        "last_success": "2025-01-21T00:50:25.888429",
+        "overall_score": 77.41,
+        "last_success": "2025-01-22T00:52:03.805574",
         "protocol_counts": {
           "wireguard://": 0,
           "hysteria2://": 0,
@@ -54,11 +54,11 @@
         "total_configs": 81,
         "valid_configs": 9,
         "unique_configs": 9,
-        "avg_response_time": 0.13,
+        "avg_response_time": 0.19,
         "success_count": 1,
         "fail_count": 0,
-        "overall_score": 77.58,
-        "last_success": "2025-01-21T00:50:28.018816",
+        "overall_score": 77.5,
+        "last_success": "2025-01-22T00:52:05.994386",
         "protocol_counts": {
           "wireguard://": 0,
           "hysteria2://": 0,
