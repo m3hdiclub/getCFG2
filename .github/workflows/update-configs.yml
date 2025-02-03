@@ -1,8 +1,7 @@
 name: Update Proxy Configs
-
 on:
   schedule:
-    - cron: '0 */24 * * *'
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -66,17 +65,10 @@ jobs:
       run: |
         timestamp=$(date +%s)
         
-																																												 
-																																												 
-		
         for readme in README*.md; do
-																																													  
-		
           sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" "$readme"
           sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" "$readme"
         done
-																																													  
-																																													  
     
     - name: Setup Git for main repo
       working-directory: main-repo
@@ -87,8 +79,6 @@ jobs:
     - name: Commit and push changes to main repo
       working-directory: main-repo
       run: |
-										 
-											
         git add configs/channel_stats.json
         git add assets/channel_stats_chart.svg
         git add assets/performance_report.html
