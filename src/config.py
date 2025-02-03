@@ -1,6 +1,7 @@
 from typing import Dict, List
 from datetime import datetime
 import re
+from urllib.parse import urlparse
 
 class ChannelMetrics:
     """
@@ -51,20 +52,41 @@ class ProxyConfig:
     def __init__(self):
         # List of source URLs to fetch proxy configs from
         # Add or remove channels here. Each ChannelConfig takes a URL and enabled status (default: True)
-        self.SOURCE_URLS = [
-            ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/mine"),
-            ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/wrkr"),
-            ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/@horizonbehind2 [X]"),
-			ChannelConfig("https://t.me/s/fnet00"),
-			ChannelConfig("https://t.me/mobilesignal"),
-		ChannelConfig("https://t.me/xs_filternet")
+        initial_urls = [
+            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/wg-config-fetcher/refs/heads/main/configs/wireguard_configs.txt"),
+            ChannelConfig("https://raw.githubusercontent.com/4n0nymou3/ss-config-updater/refs/heads/main/configs.txt"),
+            ChannelConfig("https://raw.githubusercontent.com/valid7996/Gozargah/refs/heads/main/Gozargah_Sub"),
+            ChannelConfig("https://t.me/s/FreeV2rays"),
+            ChannelConfig("https://t.me/s/v2ray_free_conf"),
+            ChannelConfig("https://t.me/s/PrivateVPNs"),
+            ChannelConfig("https://t.me/s/IP_CF_Config"),
+            ChannelConfig("https://t.me/s/shadowproxy66"),
+            ChannelConfig("https://t.me/s/OutlineReleasedKey"),
+            ChannelConfig("https://t.me/s/prrofile_purple"),
+            ChannelConfig("https://t.me/s/proxy_shadosocks"),
+            ChannelConfig("https://t.me/s/meli_proxyy"),
+            ChannelConfig("https://t.me/s/DirectVPN"),
+            ChannelConfig("https://t.me/s/VmessProtocol"),
+            ChannelConfig("https://t.me/s/ViProxys"),
+            ChannelConfig("https://t.me/s/heyatserver"),
+            ChannelConfig("https://t.me/s/vpnfail_vless"),
+            # ChannelConfig("https://t.me/s/vlessh"),
+            # ChannelConfig("https://t.me/s/V2ray_Alpha"),
+            # ChannelConfig("https://t.me/s/VlessConfig"),
+            ChannelConfig("https://t.me/s/DailyV2RY"),
+            ChannelConfig("https://t.me/s/ShadowsocksM")
+            # ChannelConfig("https://t.me/s/v2rayngvpn")
+            # ChannelConfig("https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/hysteria")
         ]
+
+        # Remove duplicate URLs before assigning to SOURCE_URLS
+        self.SOURCE_URLS = self._remove_duplicate_urls(initial_urls)
 
         # Global limits for number of configs per protocol
         # Default values: min=3, max=25
         # Adjust these values to control how many configs of each type are collected
         self.PROTOCOL_CONFIG_LIMITS = {
-            "min": 9,    # Minimum configs required per protocol (default: 3)
+            "min": 15,    # Minimum configs required per protocol (default: 3)
             "max": 25    # Maximum configs allowed per protocol (default: 25)
         }
 
@@ -134,7 +156,7 @@ class ProxyConfig:
         self.PROTOCOL_BALANCE_FACTOR = 1.5        # Factor for adjusting protocol limits (default: 1.5)
 
         # Output file paths (default paths shown)
-        self.OUTPUT_FILE = '../free-server/subscription'    # Path to save final configs
+        self.OUTPUT_FILE = 'configs/proxy_configs.txt'    # Path to save final configs
         self.STATS_FILE = 'configs/channel_stats.json'    # Path to save channel stats
         
         # HTTP request settings
@@ -150,6 +172,51 @@ class ProxyConfig:
             'Connection': 'keep-alive',
             'Upgrade-Insecure-Requests': '1'
         }
+
+    def _normalize_url(self, url: str) -> str:
+        """
+        Normalize URLs to ensure consistent comparison.
+        Handles Telegram channels, ssconf:// URLs, and regular URLs.
+        
+        Args:
+            url: The URL to normalize
+            
+        Returns:
+            Normalized version of the URL for comparison
+        """
+        if url.startswith('ssconf://'):
+            url = url.replace('ssconf://', 'https://', 1)
+            
+        parsed = urlparse(url)
+        path = parsed.path.rstrip('/')
+        
+        if parsed.netloc.startswith('t.me/s/'):
+            channel_name = parsed.path.strip('/').lower()
+            return f"telegram:{channel_name}"
+            
+        return f"{parsed.scheme}://{parsed.netloc}{path}"
+
+    def _remove_duplicate_urls(self, channel_configs: List[ChannelConfig]) -> List[ChannelConfig]:
+        """
+        Remove duplicate URLs from the channel config list.
+        Keeps the first occurrence of each URL and removes subsequent duplicates.
+        
+        Args:
+            channel_configs: List of ChannelConfig objects
+            
+        Returns:
+            List of ChannelConfig objects with duplicates removed
+        """
+        seen_urls = {}
+        unique_configs = []
+        
+        for config in channel_configs:
+            normalized_url = self._normalize_url(config.url)
+            if normalized_url not in seen_urls:
+                seen_urls[normalized_url] = True
+                unique_configs.append(config)
+                
+        return unique_configs
 
     def is_protocol_enabled(self, protocol: str) -> bool:
         """
