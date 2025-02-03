@@ -1,7 +1,8 @@
 name: Update Proxy Configs
+
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 */24 * * *'
   workflow_dispatch:
 
 permissions:
@@ -15,15 +16,15 @@ jobs:
     - name: Checkout main repository
       uses: actions/checkout@v4
       with:
-        path: main-repo
         token: ${{ secrets.GITHUB_TOKEN }}
-    
+        path: main-repo
+        
     - name: Checkout free-server repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
-        repository: yourusername/free-server  # Replace with your actual username/repository
-        path: free-server
+        repository: m3hdiclub/free-server
         token: ${{ secrets.PAT_TOKEN }}  # You'll need to create this secret
+        path: free-server
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -31,71 +32,78 @@ jobs:
         python-version: '3.x'
     
     - name: Install dependencies
-      working-directory: main-repo
       run: |
+        cd main-repo          
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
     - name: Create directories
-      working-directory: main-repo
       run: |
+        cd main-repo            
         mkdir -p assets
         mkdir -p configs
     
     - name: Run config fetcher
-      working-directory: main-repo
-      run: python src/fetch_configs.py
+      run: |
+        cd main-repo
+        python src/fetch_configs.py
       continue-on-error: true
     
     - name: Generate charts and reports
-      working-directory: main-repo
-      run: python src/generate_charts.py
+      run: |
+        cd main-repo
+        python src/generate_charts.py
       
     - name: Convert configs to sing-box format
-      working-directory: main-repo
-      run: python src/config_to_singbox.py
-    
-    - name: Copy files to free-server repository
       run: |
-        cp main-repo/configs/proxy_configs.txt free-server/subscription
-        cp main-repo/configs/singbox_configs.json free-server/singbox_subscription
+        cd main-repo
+        python src/config_to_singbox.py
     
     - name: Update README timestamps and stats
-      working-directory: main-repo
       run: |
+        cd main-repo            
         timestamp=$(date +%s)
         
-        for readme in README*.md; do
-          sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" "$readme"
-          sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" "$readme"
-        done
+        sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README.md
+        sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README.md
+        
+        sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README_FA.md
+        sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README_FA.md
+        
+        sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README_CN.md
+        sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README_CN.md
+        
+        sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README_RU.md
+        sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README_RU.md
     
-    - name: Setup Git for main repo
-      working-directory: main-repo
+    - name: Setup Git
       run: |
+        cd main-repo            
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
     
     - name: Commit and push changes to main repo
-      working-directory: main-repo
       run: |
+        cd main-repo
         git add configs/channel_stats.json
         git add assets/channel_stats_chart.svg
         git add assets/performance_report.html
-        git add README*.md
-        git commit -m "Update stats and reports" || echo "No changes to commit"
+        git add README.md
+        git add README_FA.md
+        git add README_CN.md
+        git add README_RU.md
+        git commit -m "Update proxy configs, stats and reports" || echo "No changes to commit"
         git push
-    
+        
     - name: Setup Git for free-server repo
-      working-directory: free-server
       run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        cd free-server
+        git config --local user.name 'github-actions[bot]'
+        git config --local user.email 'github-actions[bot]@users.noreply.github.com'
     
     - name: Commit and push changes to free-server repo
-      working-directory: free-server
       run: |
+        cd free-server
         git add subscription
-        git add singbox_subscription
         git commit -m "Update proxy configurations" || echo "No changes to commit"
         git push
