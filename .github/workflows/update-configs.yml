@@ -1,4 +1,5 @@
 name: Update Proxy Configs
+
 on:
   schedule:
     - cron: '0 */24 * * *'
@@ -12,18 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout main repository
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        path: main-repo
-
-    - name: Checkout free-server repository
-      uses: actions/checkout@v3
-      with:
-        repository: m3hdiclub/free-server
-        token: ${{ secrets.PAT_TOKEN }}  # You'll need to create this secret
-        path: free-server
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -32,59 +24,55 @@ jobs:
     
     - name: Install dependencies
       run: |
-        cd main-repo
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
     - name: Create directories
       run: |
-        cd main-repo
         mkdir -p assets
         mkdir -p configs
     
     - name: Run config fetcher
-      run: |
-        cd main-repo
-        python src/fetch_configs.py
+      run: python src/fetch_configs.py
       continue-on-error: true
     
     - name: Generate charts and reports
-      run: |
-        cd main-repo
-        python src/generate_charts.py
+      run: python src/generate_charts.py
+      
+    - name: Convert configs to sing-box format
+      run: python src/config_to_singbox.py
     
-    - name: Update README timestamps
+    - name: Update README timestamps and stats
       run: |
-        cd main-repo
         timestamp=$(date +%s)
+        
         sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README.md
         sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README.md
+        
+        sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README_FA.md
+        sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README_FA.md
+        
+        sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README_CN.md
+        sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README_CN.md
+        
+        sed -i "s/channel_stats_chart\.svg?v=[0-9]*/channel_stats_chart.svg?v=$timestamp/" README_RU.md
+        sed -i "s/performance_report\.html?v=[0-9]*/performance_report.html?v=$timestamp/" README_RU.md
     
-    - name: Setup Git for main repo
+    - name: Setup Git
       run: |
-        cd main-repo
-        git config --local user.name 'github-actions[bot]'
-        git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
     
-    - name: Commit and push changes to main repo
+    - name: Commit and push changes
       run: |
-        cd main-repo
+        git add configs/proxy_configs.txt
+        git add configs/singbox_configs.json
         git add configs/channel_stats.json
         git add assets/channel_stats_chart.svg
         git add assets/performance_report.html
         git add README.md
-        git commit -m "Update stats and reports" || echo "No changes to commit"
-        git push
-
-    - name: Setup Git for free-server repo
-      run: |
-        cd free-server
-        git config --local user.name 'github-actions[bot]'
-        git config --local user.email 'github-actions[bot]@users.noreply.github.com'
-    
-    - name: Commit and push changes to free-server repo
-      run: |
-        cd free-server
-        git add subscription
-        git commit -m "Update proxy configurations" || echo "No changes to commit"
+        git add README_FA.md
+        git add README_CN.md
+        git add README_RU.md
+        git commit -m "Update proxy configs, stats and reports" || echo "No changes to commit"
         git push
