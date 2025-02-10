@@ -53,11 +53,9 @@ class ProxyConfig:
         # Add or remove channels here. Each ChannelConfig takes a URL and enabled status (default: True)
         self.SOURCE_URLS = [
             ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/mine"),
-            ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/wrkr"),
-            ChannelConfig("https://raw.githubusercontent.com/m3hdiclub/free-server/main/@horizonbehind2 [X]"),
 			ChannelConfig("https://t.me/s/fnet00"),
 			ChannelConfig("https://t.me/mobilesignal"),
-		ChannelConfig("https://t.me/xs_filternet")
+			ChannelConfig("https://t.me/xs_filternet")
         ]
 
         # Global limits for number of configs per protocol
